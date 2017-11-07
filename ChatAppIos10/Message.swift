@@ -47,6 +47,8 @@ struct Message {
                 messages.append(message)
             }
         }
+        print("These are my messages here: \(messages)")
+        
         return messages
     }
     

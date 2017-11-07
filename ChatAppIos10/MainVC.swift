@@ -91,8 +91,8 @@ class MainVC: UIViewController {
     func dismissKeyboard() {
         view.endEditing(true)
     }
-    
-    
+}
+
     extension MainVC: DataServiceDelegate {
         func dataLoaded() {
             tableView.reloadData()
@@ -105,5 +105,26 @@ class MainVC: UIViewController {
     
     extension MainVC: UITableViewDelegate, UITableViewDataSource {
         
+        func numberOfSections(in tableView: UITableView) -> Int {
+            return 1
+        }
+        
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            print("number of Rows in section \(DataService.instance.messages.count)")
+            return DataService.instance.messages.count
+        }
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let msg = DataService.instance.messages[(indexPath as NSIndexPath).row]
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell") as? MessageCell {
+                if let user = msg.userId, let message = msg.message {
+                    cell.configureCell(user: user, message: message)
+                }
+                return cell
+            } else {
+                return MessageCell()
+            }
+            
+        }
 }
 
