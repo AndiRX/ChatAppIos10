@@ -28,24 +28,48 @@ class SignInVC: UIViewController {
         }
     }
     
-        func showAlert(title: String, message: String) {
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alertController.addAction(okAction)
-            self.present(alertController, animated: true, completion: nil)
-        }
-        
-        func setUsername() {
-            if let user = Auth.auth().currentUser {
-                AuthService.instance.isLoggedIn = true
-                let emailComponents = user.email?.components(separatedBy: "@")
-                if let username = emailComponents?[0] {
-                    AuthService.instance.username = username
-                }
-            } else {
-                AuthService.instance.isLoggedIn = false
-                AuthService.instance.username = nil
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func setUsername() {
+        if let user = Auth.auth().currentUser {
+            AuthService.instance.isLoggedIn = true
+            let emailComponents = user.email?.components(separatedBy: "@")
+            if let username = emailComponents?[0] {
+                AuthService.instance.username = username
             }
+        } else {
+            AuthService.instance.isLoggedIn = false
+            AuthService.instance.username = nil
         }
     }
-
+    
+    @IBAction func signInTapped(_ sender: UIButton) {
+        //unwraps the textfields and stores them in constants
+        guard let email = emailTextField.text, let password = passwordTextField.text else {
+            showAlert(title:"Error", message: "Please enter an email and password")
+            return
+        }
+        
+        //check to make sure they are not an empty string
+        guard email != "", password != "" else {
+            showAlert(title: "Error", message: "Please enter an email and password")
+            return
+        }
+        
+        AuthService.instance.eMailLogin(email, password: password) { (success, message) in
+            if success {
+                self.setUsername()
+                self.setUsername()
+                self.performSegue(withIdentifier: "showMainVC", sender: nil)
+            } else {
+                self.showAlert(title: "Failure", message: message)
+            }
+        }
+        
+    }
+}
