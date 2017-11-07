@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		237266347915C6E9CF545512 /* Pods_ChatAppIos10Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B9B8A33D2095A6F5C0CC2DA /* Pods_ChatAppIos10Tests.framework */; };
 		4B1A97A81FB1208600CAC4E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B1A97A71FB1208600CAC4E6 /* GoogleService-Info.plist */; };
+		4B1A97AE1FB1235000CAC4E6 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1A97AD1FB1235000CAC4E6 /* AuthService.swift */; };
+		4B1A97B01FB14F1000CAC4E6 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1A97AF1FB14F1000CAC4E6 /* DataService.swift */; };
+		4B1A97B21FB1507500CAC4E6 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1A97B11FB1507500CAC4E6 /* Message.swift */; };
 		4B2A4CC01FB11B4800A1F623 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2A4CBF1FB11B4800A1F623 /* AppDelegate.swift */; };
 		4B2A4CC21FB11B4800A1F623 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2A4CC11FB11B4800A1F623 /* ViewController.swift */; };
 		4B2A4CC51FB11B4800A1F623 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B2A4CC31FB11B4800A1F623 /* Main.storyboard */; };
@@ -32,6 +35,9 @@
 		1297D3D9E2D913D3F91ED65B /* Pods_ChatAppIos10.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatAppIos10.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C10E3A21F519F861792DB4A /* Pods-ChatAppIos10Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatAppIos10Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChatAppIos10Tests/Pods-ChatAppIos10Tests.release.xcconfig"; sourceTree = "<group>"; };
 		4B1A97A71FB1208600CAC4E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4B1A97AD1FB1235000CAC4E6 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		4B1A97AF1FB14F1000CAC4E6 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		4B1A97B11FB1507500CAC4E6 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		4B2A4CBC1FB11B4800A1F623 /* ChatAppIos10.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatAppIos10.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B2A4CBF1FB11B4800A1F623 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B2A4CC11FB11B4800A1F623 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +88,8 @@
 		4B1A97A91FB1227E00CAC4E6 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				4B1A97AD1FB1235000CAC4E6 /* AuthService.swift */,
+				4B1A97AF1FB14F1000CAC4E6 /* DataService.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -96,6 +104,7 @@
 		4B1A97AB1FB1229D00CAC4E6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4B1A97B11FB1507500CAC4E6 /* Message.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -366,8 +375,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B1A97AE1FB1235000CAC4E6 /* AuthService.swift in Sources */,
 				4B2A4CC21FB11B4800A1F623 /* ViewController.swift in Sources */,
+				4B1A97B21FB1507500CAC4E6 /* Message.swift in Sources */,
 				4B2A4CC01FB11B4800A1F623 /* AppDelegate.swift in Sources */,
+				4B1A97B01FB14F1000CAC4E6 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
